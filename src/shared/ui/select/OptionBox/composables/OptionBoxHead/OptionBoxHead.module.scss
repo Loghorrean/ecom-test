@@ -1,0 +1,37 @@
+@use "src/shared/styles/mixins" as m;
+
+.option_box__head {
+    min-width: 14rem;
+    cursor: pointer;
+    background-color: #ecf1f7;
+    padding: 0.5rem 0.625rem;
+    border-radius: 0.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    &:active,
+    &:focus-within,
+    &[aria-expanded="true"] {
+        outline: 2px solid var(--medium-dark-background-color);
+    }
+    &__filter {
+        max-width: 100%;
+        background-color: transparent;
+        border: none;
+        flex-grow: 1;
+        min-width: 0;
+        &:focus {
+            outline: none;
+            border-bottom: 1px solid var(--dark-background-color);
+        }
+    }
+}
+
+.option_box__selected {
+    flex-grow: 1;
+    color: var(--font-dark-color);
+}
+
+.option_box__placeholder {
+    color: var(--font-secondary-color);
+}

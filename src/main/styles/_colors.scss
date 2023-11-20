@@ -1,0 +1,18 @@
+@use "src/shared/styles/variables" as v;
+@use "src/shared/styles/functions" as func;
+
+:root {
+    --white-color: #{v.$white-color};
+    --white-color-rgb: #{func.hexToRgb(v.$white-color)};
+    --black-color: #{v.$black-color};
+    --black-color-rgb: #{func.hexToRgb(v.$black-color)};
+    --background-color: #{v.$background-color};
+    --content-black-color: #{v.$content-black-color};
+    --content-black-color-rgb: #{func.hexToRgb(v.$content-black-color)};
+    --primary-gray-color: #{v.$primary-gray-color};
+    --primary-gray-color-rgb: #{func.hexToRgb(v.$primary-gray-color)};
+    --primary-border-color: #{v.$primary-border-color};
+    --primary-yellow-color: #{v.$primary-yellow-color};
+    --primary-yellow-color-rgb: #{func.hexToRgb(v.$primary-yellow-color)};
+    --info-blue-color: #{v.$info-blue-color};
+}

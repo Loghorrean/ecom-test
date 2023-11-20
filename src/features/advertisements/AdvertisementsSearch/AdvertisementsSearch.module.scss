@@ -1,0 +1,27 @@
+.advertisements_search {
+    grid-column: 1 / -1;
+    box-shadow: 0 0 0 0 rgba(38, 43, 48, 0.02), 0 0 0 0 rgba(38, 43, 48, 0.02), 0 0 1px 0 rgba(38, 43, 48, 0.02),
+        0 0 1px 0 rgba(38, 43, 48, 0.01), 0 0 1px 0 rgba(38, 43, 48, 0), 0 0 1px 0 rgba(38, 43, 48, 0);
+    &__heading {
+        color: var(--content-black-color);
+        font-size: 1.5rem;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        margin-bottom: 0.625rem;
+    }
+    &__block {
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+    }
+    &__input {
+        border-radius: 0;
+        border: none;
+        border-bottom: 1px solid var(--primary-border-color);
+        flex-grow: 1;
+    }
+    &__submit {
+        min-width: 14rem;
+    }
+}

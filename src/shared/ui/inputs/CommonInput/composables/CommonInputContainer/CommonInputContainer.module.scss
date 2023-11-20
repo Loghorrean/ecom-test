@@ -1,0 +1,26 @@
+@use "src/shared/styles/mixins" as m;
+
+.common_input_container {
+    padding: 0.875rem 0.625rem;
+    background-color: var(--white-color);
+    border-radius: 0.25rem;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid var(--content-black-color);
+    box-shadow: 0 2px 4px -2px #0000000a;
+    &:has(input[disabled]),
+    &__disabled {
+        background-color: rgba(var(--text-dark-secondary-color), 0.5);
+    }
+    @include m.media("tablet") {
+        padding: 1rem;
+    }
+    &___error {
+        border-color: var(--red-error-color);
+    }
+    &:focus-within {
+        border-color: var(--primary-gray-color);
+    }
+}

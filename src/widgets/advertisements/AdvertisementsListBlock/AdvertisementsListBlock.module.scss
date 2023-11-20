@@ -1,0 +1,95 @@
+@use "src/shared/styles/mixins" as m;
+
+.advertisements_list_block {
+    padding-block: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    &__description {
+        color: var(--primary-gray-color);
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+    &__table {
+        width: 100%;
+    }
+    &__table_cell {
+        color: var(--content-black-color);
+        text-align: center;
+        font-size: 0.875rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+    &__table_head {
+        background-color: var(--white-color);
+        & th {
+            padding: 0.625rem;
+            color: var(--content-black-color);
+            text-align: center;
+            font-size: 0.75rem;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+        }
+    }
+    &__table_row {
+        padding: 0.625rem;
+        &:nth-child(even) {
+            border-radius: 0.625rem;
+            background-color: var(--white-color);
+        }
+    }
+    &__table_photo {
+        border-radius: 0.125rem;
+        object-fit: cover;
+        object-position: center;
+    }
+    &__article {
+        @include m.centerWithFlex;
+        gap: 0.25rem;
+        & > span:nth-child(2) {
+            color: var(--info-blue-color);
+            font-size: 0.875rem;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            text-decoration-line: underline;
+        }
+    }
+    &__cpm {
+        border-radius: 0.625rem;
+        padding: 0.625rem;
+        @include m.centerWithFlex;
+        background-color: rgba(var(--primary-yellow-color-rgb), 0.2);
+        min-width: 12rem;
+    }
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.625rem;
+    }
+    &__paginator {
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+    }
+    &__page_button {
+        @include m.box(3.5rem);
+        cursor: pointer;
+        @include m.centerWithFlex;
+        padding: 0.625rem;
+        border-radius: 0.625rem;
+        border: 1px solid var(--primary-border-color);
+        color: var(--primary-gray-color);
+        font-size: 0.875rem;
+        font-weight: 400;
+        &___active {
+            background-color: var(--white-color);
+            border-color: #f3f4f5;
+        }
+    }
+}

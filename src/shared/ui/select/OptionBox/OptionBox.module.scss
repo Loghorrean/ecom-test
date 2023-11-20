@@ -1,0 +1,8 @@
+.option_box {
+    min-height: 3rem;
+    height: 1px;
+    position: relative;
+    border-radius: 1.125rem;
+    border: 1px solid var(--stroke-gray-primary-color);
+    width: max-content;
+}

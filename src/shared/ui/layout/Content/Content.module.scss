@@ -1,0 +1,15 @@
+.content {
+    min-height: calc(100dvh - 1rem);
+    display: grid;
+    position: relative;
+    grid-gap: 0;
+    &___basic {
+        grid-template-rows: auto 1fr auto;
+    }
+    &___no_header {
+        grid-template-rows: 1fr auto;
+    }
+    &___no_footer {
+        grid-template-rows: auto 1fr;
+    }
+}

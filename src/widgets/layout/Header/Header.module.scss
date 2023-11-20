@@ -1,0 +1,61 @@
+@use "src/shared/styles/mixins" as m;
+
+.header {
+    padding-block: 2.25rem;
+    &__container {
+        display: flex;
+        align-items: center;
+        gap: 1.875rem;
+    }
+    &__list {
+        display: flex;
+        align-items: center;
+        gap: 1.875rem;
+    }
+    &__link {
+        color: var(--primary-gray-color);
+        font-size: 0.875rem;
+        font-weight: 400;
+        &___active {
+            color: var(--content-black-color);
+            & path {
+                stroke: var(--content-black-color);
+            }
+            position: relative;
+            &::after {
+                content: "";
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: calc(100% - 0.375rem);
+                height: 2px;
+                background-color: var(--primary-yellow-color);
+            }
+        }
+    }
+    &__dropdown {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+    }
+    &__right {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        gap: 1.875rem;
+    }
+    &__bell {
+        @include m.box(1.5rem);
+        @include m.buttonToLink;
+    }
+    &__user {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        &_photo {
+            @include m.circle(3.125rem);
+            object-position: center;
+            object-fit: cover;
+        }
+    }
+}

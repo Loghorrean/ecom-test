@@ -1,0 +1,104 @@
+@use "src/shared/styles/variables" as v;
+@use "src/shared/styles/mixins" as m;
+
+.option_box {
+    &__content {
+        min-width: 5rem;
+        position: absolute;
+        top: calc(100% + 0.25rem);
+        left: 0;
+        overflow: hidden;
+        @include m.scrollbarWidth;
+        max-height: 0;
+        z-index: 5;
+        background-color: var(--white-color);
+        border-radius: 0.75rem;
+        box-shadow: 0 2px 32px rgba(0, 0, 0, 0.08);
+        width: 100%;
+        border: 0 solid var(--stroke-gray-primary-color);
+        &___enter {
+            overflow: hidden;
+            max-height: 0;
+            visibility: hidden;
+            border-width: 0;
+        }
+        &___enter_active {
+            visibility: visible;
+            transition: all 0.5s ease-in-out;
+            overflow-y: scroll;
+            overflow-x: visible;
+            max-height: 5rem;
+            border-width: 1px;
+        }
+        &___enter_done {
+            visibility: visible;
+            overflow-y: scroll;
+            overflow-x: visible;
+            max-height: 5rem;
+            border-width: 1px;
+        }
+        &___exit {
+            visibility: visible;
+            overflow-y: scroll;
+            overflow-x: visible;
+            max-height: 5rem;
+            border-width: 1px;
+        }
+        &___exit_active {
+            visibility: visible;
+            transition: all 0.5s ease-in-out;
+            overflow-y: scroll;
+            overflow-x: visible;
+            max-height: 0;
+            border-width: 0;
+        }
+        &___exit_done {
+            visibility: hidden;
+            overflow: hidden;
+            max-height: 0;
+            border-width: 0;
+        }
+    }
+    &__list {
+        border-radius: inherit;
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    &__item {
+        cursor: pointer;
+        max-width: 100%;
+        overflow-x: visible;
+        @include m.scrollbarWidth;
+        display: flex;
+        align-items: center;
+        & > *:first-child {
+            width: 100%;
+            padding: 0.625rem 1rem;
+        }
+        &:first-child {
+            border-radius: 0.75rem 0.75rem 0 0;
+        }
+        &:last-child {
+            border-radius: 0 0 0.75rem 0.75rem;
+        }
+        &:only-child {
+            border-radius: 0.75rem;
+        }
+        transition: background-color 0.5s ease-in-out;
+        &:not(:last-child) {
+            border-bottom: 1px solid var(--stroke-gray-primary-color);
+        }
+        &[data-current="true"] {
+            outline: 2px solid var(--medium-dark-background-color);
+            outline-offset: -2px;
+        }
+        &___disabled {
+            pointer-events: none;
+            user-select: none;
+        }
+        &:not(&___disabled):is(:hover, [aria-selected="true"]) {
+            background-color: var(--selected-option-color);
+        }
+    }
+}

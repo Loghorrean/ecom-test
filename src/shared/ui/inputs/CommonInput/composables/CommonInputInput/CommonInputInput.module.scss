@@ -1,0 +1,34 @@
+@use "src/shared/styles/mixins" as m;
+
+@mixin commonInputInput {
+    background-color: transparent;
+    border: none;
+    flex-grow: 1;
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
+    color: var(--content-black-color);
+    font-size: 1rem;
+    font-weight: 400;
+    @include m.media("tablet", "min") {
+        max-height: 1.125rem;
+    }
+    &___numeric {
+        @include m.hideNumericArrows;
+    }
+    &::placeholder {
+        color: var(--primary-gray-color);
+        font-size: 1rem;
+        font-weight: 400;
+    }
+    &:focus {
+        outline: none;
+    }
+    &:disabled {
+        color: rgba(var(--text-dark-secondary-color), 0.5);
+    }
+}
+
+.common_input_input {
+    @include commonInputInput;
+}

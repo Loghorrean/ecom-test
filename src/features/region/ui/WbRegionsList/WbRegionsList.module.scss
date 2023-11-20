@@ -1,0 +1,21 @@
+.wb_regions_list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.625rem;
+    &__item {
+        text-align: center;
+        min-width: 7.125rem;
+        padding: 0.5rem 0.625rem;
+        color: var(--content-black-color);
+        font-size: 1rem;
+        font-weight: 400;
+        border-radius: 0.25rem;
+        border: 1px solid var(--primary-border-color);
+        cursor: pointer;
+        &[aria-selected="true"] {
+            background-color: var(--white-color);
+            border: 1px solid #f3f4f5;
+        }
+    }
+}

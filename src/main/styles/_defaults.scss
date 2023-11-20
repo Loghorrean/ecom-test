@@ -1,0 +1,40 @@
+@use "src/shared/styles/mixins" as m;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    min-height: 100%;
+}
+
+html,
+body {
+    scroll-behavior: smooth;
+}
+
+body {
+    line-height: 1;
+    background-color: var(--background-color);
+    font-weight: 400;
+    overflow-x: hidden;
+    @include m.useRobotoFont;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul,
+ol {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+image {
+    max-width: 100%;
+}

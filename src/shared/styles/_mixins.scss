@@ -1,0 +1,111 @@
+@use "variables";
+
+@mixin centerWithFlex() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin centerWithPositioning($additionalTransform: "") {
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%) #{$additionalTransform};
+}
+
+@mixin centerLineWithPositioning($additionalTransform: "") {
+    left: 50%;
+    transform: translateX(-50%) #{$additionalTransform};
+}
+
+@mixin centerColumnWithPositioning($additionalTransform: "") {
+    top: 50%;
+    transform: translateY(-50%) #{$additionalTransform};
+}
+
+@mixin hideNumericArrows() {
+    -moz-appearance: textfield;
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+}
+
+@mixin box($size) {
+    width: $size;
+    min-width: $size;
+    height: $size;
+    min-height: $size;
+}
+
+@mixin circle($size) {
+    @include box($size);
+    border-radius: $size;
+}
+
+$widths: (
+    min: min-width,
+    max: max-width,
+);
+
+@mixin media($breakpoint, $width: "max") {
+    @if (map-has-key($widths, $width) == false) {
+        @error "Please, provide valid width parameter";
+    }
+    @if (map-has-key(variables.$container-breakpoints, $breakpoint)) {
+        $breakpoint: map-get(variables.$container-breakpoints, $breakpoint);
+        $breakpoint: calc($breakpoint - 1px);
+        @media screen and (#{$width + "-width"}: $breakpoint) {
+            @content;
+        }
+    } @else if (type-of($breakpoint) == "number") {
+        @media screen and (#{$width + "-width"}: $breakpoint) {
+            @content;
+        }
+    } @else {
+        @error "Please, provide valid breakpoint";
+    }
+}
+
+@mixin hideOnBreakpoint($breakpoint, $width: "max") {
+    @include media(variables.$container-breakpoints, $breakpoint, $width) {
+        display: none !important;
+    }
+}
+
+@mixin scrollbarWidth() {
+    scrollbar-color: transparent transparent;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+        display: none;
+        width: 1px;
+    }
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: transparent;
+    }
+}
+
+@mixin useResizableImage {
+    width: 100%;
+    height: auto;
+    aspect-ratio: attr(width) / attr(height);
+}
+
+@mixin buttonToLink {
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+}
+
+@mixin font-size($size) {
+    font-size: $size;
+    line-height: $size * 1.5;
+}
+
+@mixin useRobotoFont {
+    font-family: "Roboto", sans-serif;
+}

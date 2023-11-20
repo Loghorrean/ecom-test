@@ -1,0 +1,28 @@
+@use "src/shared/styles/mixins" as m;
+@use "src/shared/styles/variables" as v;
+
+.primary_button {
+    border-radius: 0.25rem;
+    padding: 1rem;
+    @include m.centerWithFlex;
+    gap: 0.75rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out;
+    font-size: 1rem;
+    font-weight: 400;
+    &___yellow {
+        background-color: var(--primary-yellow-color);
+        color: var(--content-black-color);
+        &[disabled=""] {
+            color: rgba(var(--content-black-color-rgb), 0.5);
+            background-color: rgba(var(--primary-yellow-color-rgb), 0.5);
+        }
+    }
+    &___wide {
+        width: 100%;
+    }
+    &___centered {
+        justify-content: center;
+    }
+}

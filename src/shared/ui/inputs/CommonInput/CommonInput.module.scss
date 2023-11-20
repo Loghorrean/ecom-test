@@ -1,0 +1,7 @@
+@use "src/shared/styles/mixins" as m;
+
+.common_input {
+    &___numeric {
+        @include m.hideNumericArrows;
+    }
+}

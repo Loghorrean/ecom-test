@@ -6,7 +6,7 @@ yarn
 Сбилдить и запустить:
 
 ```bash
-yarn build
+yarn run build
 
 yarn run start
 ```
